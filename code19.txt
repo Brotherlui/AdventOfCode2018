@@ -1,0 +1,49 @@
+        A  B C
+00 addi 3 16 3 ip = ip + 16 (goto LINE17)
+
+LINE01:
+01 seti 1  9 5 r5 = 1
+
+LINE02:
+02 seti 1  1 4 r4 = 1
+03 mulr 5  4 2 r2 = r5 * r4
+04 eqrr 2  1 2 r2 = 1 if r2 == r1 else 0
+05 addr 2  3 3 ip = r2 + ip
+06 addi 3  1 3 ip = ip + 1
+07 addr 5  0 0 r0 = r5 + r0
+08 addi 4  1 4 r4 = r4 + 1
+09 gtrr 4  1 2 r2 = 1 if r4 > r1 else 0
+10 addr 3  2 3 ip = ip + r2
+11 seti 2  3 3 ip = 2
+12 addi 5  1 5 r5 = r5 + 1
+13 gtrr 5  1 2 r2 = 1 if r5 > r1 else 0
+14 addr 2  3 3 ip = r2 + ip
+15 seti 1  4 3 ip = 1  (GOTO LINE02)
+
+LINE16:
+16 mulr 3  3 3 ip = ip * ip  (GOTO LINE256)
+
+LINE17:
+17 addi 1  2 1 r1 = r1 + 2
+18 mulr 1  1 1 r1 = r1 * r1
+19 mulr 3  1 1 r1 = ip * r1
+20 muli 1 11 1 r1 = r1 * 11
+21 addi 2  2 2 r2 = r2 + 2
+22 mulr 2  3 2 r2 = r2 * ip
+23 addi 2 20 2 r2 = r2 + 20
+24 addr 1  2 1 r1 = r1 + r2
+25 addr 3  0 3 ip = ip + r0
+26 seti 0  4 3 ip = 0  (goto LINE01)
+
+27 setr 3  9 2 r2 = ip
+28 mulr 2  3 2 r2 = r2 * ip
+29 addr 3  2 2 r2 = ip + r2
+30 mulr 3  2 2 r2 = ip * r2
+31 muli 2 14 2 r2 = r2 * 14
+32 mulr 2  3 2 r2 = r2 * ip
+33 addr 1  2 1 r1 = r1 + r2
+34 seti 0  6 0 r0 = 0
+35 seti 0  0 3 ip = 0  (goto LINE01)
+
+LINE256:
+ip == 257 program halts
